@@ -28,6 +28,19 @@ class CMChatViewController2: UIViewController,UICollectionViewDataSource,UIColle
             flowLayout.scrollDirection = .vertical
             collectionView = UICollectionView(frame: centerViewHolder.frame, collectionViewLayout: flowLayout)
             collectionView!.register(UINib.init(nibName: "CMChatCollectionViewDemoCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+
+            collectionView!.register(UINib(nibName: "CMChatVoiceInCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "voiceIn")
+            collectionView!.register(UINib(nibName: "CMChatVoiceOutCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "voiceOut")
+            
+            collectionView!.register(UINib(nibName: "CMChatMessageInCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "messageIn")
+            collectionView!.register(UINib(nibName: "CMChatMessageOutCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "messageOut")
+            
+            collectionView!.register(UINib(nibName: "CMChatImageInCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "imageIn")
+            collectionView!.register(UINib(nibName: "CMChatImageOutCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "imageOut")
+
+            collectionView!.register(UINib(nibName: "CMChatTimeStampCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeStamp")
+
+            
             collectionView!.y = 0
             collectionView!.backgroundColor = .orange
             collectionView!.delegate = self
@@ -42,13 +55,26 @@ class CMChatViewController2: UIViewController,UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        return cell
+        var cell : UICollectionViewCell?
+        if indexPath.row % 7 == 0 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "voiceIn", for: indexPath)
+        } else if indexPath.row % 6 == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "voiceOut", for: indexPath)
+        } else if indexPath.row % 6 == 2 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "messageIn", for: indexPath)
+        } else if indexPath.row % 6 == 3 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "messageOut", for: indexPath)
+        } else if indexPath.row % 6 == 4 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageIn", for: indexPath)
+        } else if indexPath.row % 6 == 5 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageOut", for: indexPath)
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeStamp", for: indexPath)
+        }
+        
+        cell!.setNeedsLayout()
+        return cell!
     }
-    
-    
-    
-    
 }
 
 

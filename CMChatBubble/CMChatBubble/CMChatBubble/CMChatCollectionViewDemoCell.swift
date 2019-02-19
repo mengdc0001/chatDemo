@@ -8,8 +8,21 @@
 
 import UIKit
 
-class CMChatCollectionViewDemoCell: UICollectionViewCell {
+enum CMChatCellType {
+    case CMChatCellTypeVoiceIn(Int)
+    case CMChatCellTypeVoiceOut(Int)
+    case CMChatCellTypeMessageIn(String)
+    case CMChatCellTypeMessageOut(String)
+    case CMChatCellTypeImageIn(String)
+    case CMChatCellTypeImageOut(String)
+    case CMChatCellTypeTimeStamp(Date)
+}
 
+
+
+
+
+class CMChatCollectionViewDemoCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         print("awakefromnib")
