@@ -18,10 +18,36 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="671" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_head_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="57a-Oe-kQx">
+                        <rect key="frame" x="492" y="30" width="159" height="159"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="57a-Oe-kQx" secondAttribute="height" multiplier="15:15" id="i7l-ms-K8H"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_sender_background_normal_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="9H8-za-Keh">
+                        <rect key="frame" x="222" y="30" width="240" height="159"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="240" identifier="centerWidth" id="qvL-G9-S8D"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="57a-Oe-kQx" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2ui-WY-Bur"/>
+                <constraint firstItem="57a-Oe-kQx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" identifier="headTop" id="8pT-1v-UJY"/>
+                <constraint firstItem="9H8-za-Keh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VDO-aA-HbP"/>
+                <constraint firstAttribute="trailing" secondItem="57a-Oe-kQx" secondAttribute="trailing" constant="20" id="a5s-Qx-AHV"/>
+                <constraint firstItem="57a-Oe-kQx" firstAttribute="leading" secondItem="9H8-za-Keh" secondAttribute="trailing" constant="30" id="cK0-Cg-OfO"/>
+                <constraint firstItem="9H8-za-Keh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" identifier="centerTop" id="qWI-bS-cGh"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="671" height="219"/>
             <point key="canvasLocation" x="72.799999999999997" y="178.56071964017991"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="message_sender_background_normal_2.png" width="66" height="49"/>
+        <image name="setting_head_default.png" width="70" height="70"/>
+    </resources>
 </document>

@@ -10,6 +10,8 @@ import UIKit
 
 class CMChatVoiceInCollectionViewCell: CMCollectionViewBaseCell {
 
+    @IBOutlet weak var centerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headTopConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,12 +21,10 @@ class CMChatVoiceInCollectionViewCell: CMCollectionViewBaseCell {
     var infoLabel : UILabel?
     override func layoutSubviews() {
         super.layoutSubviews()
-        if infoLabel == nil {
-            infoLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.width, height: self.height))
-            infoLabel?.font = UIFont.systemFont(ofSize: 12)
-            self.addSubview(infoLabel!)
-        }
-        infoLabel?.text = "Voice in cell"
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        return layoutAttributes
     }
     
 
